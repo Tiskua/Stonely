@@ -1,0 +1,124 @@
+:root {
+  --primary-color: #177d81;
+  --secondary-color: #1c5052;
+  --accent-color: #f59e0b;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  color: inherit;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: white;
+}
+
+/* Center the phone on the webpage */
+#main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding: 20px;
+}
+
+/* Responsive iPhone outline */
+#iphone-outline {
+  position: relative;
+
+  width: min(100%, 350px);
+  aspect-ratio: 9 / 19.5;
+
+  background-image: url("../images/iphone.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% 100%;
+  background-color: #bdded6;
+  border-radius: 70px;
+
+  overflow: hidden;
+}
+
+/* Screen area inside the iPhone */
+#iphone-content {
+  position: absolute;
+  top: 8%;
+  left: 6%;
+  width: 88%;
+  height: 84%;
+
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  scrollbar-width: none;
+  overscroll-behavior: contain;
+}
+
+#iphone-content::-webkit-scrollbar {
+  display: none;
+}
+
+/* Main content fills available space */
+content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  /* Important changes */
+  justify-content: flex-start;
+  flex: 1 0 auto;
+
+  gap: 15px;
+  padding: 20px 15px;
+
+  overflow: visible;
+}
+.screen-layout {
+  display: flex;
+  flex-direction: column;
+
+  min-height: 100%;
+  width: 100%;
+}
+
+.screen-layout .content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  gap: 15px;
+  overflow: visible;
+}
+
+.screen-layout .header,
+.screen-layout .footer {
+  flex-shrink: 0;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* padding: 15px; */
+  flex-shrink: 0;
+  margin-bottom: 20px;
+}
+
+/* Footer stays at the bottom */
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 15px;
+  flex-shrink: 0;
+}

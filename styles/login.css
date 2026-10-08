@@ -1,0 +1,55 @@
+:root {
+  --primary-color: #bdded6;
+  --secondary-color: #177d81;
+  --accent-color: #f59e0b;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  color: inherit;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: white;
+}
+
+/* Header stays at the top */
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 15px;
+  flex-shrink: 0;
+}
+
+/* Footer stays at the bottom */
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 15px;
+  flex-shrink: 0;
+}
+
+/* Button styling */
+button {
+  background-color: var(--accent-color);
+  border: none;
+  border-radius: 10px;
+  padding: 12px 24px;
+  cursor: pointer;
+}
+
+input {
+  padding: 8px 12px;
+  border-radius: 10px;
+  outline-color: #177d81;
+  background-color: lightyellow;
+  border-color: #177d81;
+}

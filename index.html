@@ -3,12 +3,44 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="styles.css" rel="stylesheet" />
+    <link href="styles/global.css" rel="stylesheet" />
+    <link href="styles/login.css" rel="stylesheet" />
     <title>Stonely</title>
   </head>
+
   <body>
     <div id="main">
-      <img href="iphone.png" />
+      <div id="iphone-outline">
+        <div id="iphone-content">
+          <div class="screen-layout">
+            <header class="header">
+              <h2>Stonely</h2>
+            </header>
+            <main class="content">
+              <h1>Hello!</h1>
+              <p>Welcome to Stonely</p>
+              <a>Get Started</a>
+
+              <input
+                type="text"
+                id="username"
+                name="username"
+                placeholder="Enter your username"
+              />
+              <input
+                type="text"
+                id="password"
+                name="password"
+                placeholder="Enter your password"
+              />
+              <button><a href="profile.html">Login</a></button>
+            </main>
+            <footer class="footer">
+              <p>This is a footer!</p>
+            </footer>
+          </div>
+        </div>
+      </div>
     </div>
   </body>
 </html>
