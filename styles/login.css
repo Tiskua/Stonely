@@ -47,6 +47,7 @@ button {
 }
 
 input {
+  width: 275px;
   padding: 8px 12px;
   border-radius: 10px;
   outline-color: #177d81;
