@@ -1,0 +1,21 @@
+.settings-section {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  font-size: 50px;
+}
+
+.settings-bg {
+  border: 2px solid #efefc3;
+  background-color: #bb9457;
+  padding: 15px;
+
+  /* max-width: 200px; */
+  border-radius: 20px;
+}
+
+.settings-section li {
+  list-style-type: none;
+  padding: 0;
+  margin: 10px 0;
+}

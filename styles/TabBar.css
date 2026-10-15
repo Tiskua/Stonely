@@ -1,0 +1,14 @@
+.container {
+  display: flex;
+  background-color: var(--dark-spruce);
+  width: 100%;
+  height: 50px;
+  align-items: center;
+  border-radius: 50px;
+  justify-content: space-around;
+  color: #99582a;
+}
+
+.selected {
+  color: #bb9457;
+}

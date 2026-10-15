@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="../styles/global.css" rel="stylesheet" />
+    <link href="../styles/homepage.css" rel="stylesheet" />
+    <link href="../styles/TabBar.css" rel="stylesheet" />
+
+    <script
+      src="https://kit.fontawesome.com/e8b61a6feb.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <title>Stonely</title>
+  </head>
+
+  <body>
+    <div id="main">
+      <div id="iphone-outline">
+        <div id="iphone-content">
+          <div class="screen-layout">
+            <header class="header">
+              <div
+                style="
+                  width: 100%;
+                  display: flex;
+                  flex-direction: row;
+                  align-items: center;
+                  justify-content: space-around;
+                "
+              >
+                <a href="../settings.html"
+                  ><i class="fa-solid fa-gear fa-xl"></i
+                ></a>
+                <h2>(ROCK NAME)</h2>
+                <a href="../cosmetics.html"
+                  ><i class="fa-solid fa-shirt fa-xl"></i
+                ></a>
+              </div>
+            </header>
+            <div>happiness bar goes here</div>
+            <main class="content">
+              <head>
+                <div
+                  id="pet-gif"
+                  style="
+                    position: absolute;
+                    top: 20px;
+                    width: 300px;
+                    height: 200px;
+                    display: none;
+                  "
+                >
+                  <img
+                    type="text/javascript"
+                    async
+                    src="../images/petpet-transparent.gif"
+                    style="width: 100%; height: 100%"
+                  />
+                </div>
+
+                <img
+                  src="../images/googly-eyes-rock.png"
+                  alt="rock"
+                  style="width: 100%; height: 100%; object-fit: contain"
+                />
+              </head>
+
+              <div class="grid-container">
+                <button>Feed</button>
+                <button>Water</button>
+                <button onclick="togglePet()">Pet</button>
+                <button>Take on Walk</button>
+                <button>Clean Rock</button>
+                <button>Slingshot</button>
+              </div>
+            </main>
+            <footer>
+              <tab-bar selected="home"></tab-bar>
+            </footer>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="../TabBar.js"></script>
+    <script src="../scripts.js"></script>
+  </body>
+</html>

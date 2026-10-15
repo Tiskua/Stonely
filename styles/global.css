@@ -1,7 +1,15 @@
 :root {
-  --primary-color: #177d81;
-  --secondary-color: #1c5052;
-  --accent-color: #f59e0b;
+  --background-color: #ffe6a7;
+  --text-color: #424342;
+  --accent-color: #6f1d1b;
+  --green: #256d1bff;
+  --dark-spruce: #6f1d1b;
+  --light-gray: #d5d6d5;
+  --dark-wine: #6f1d1bff;
+  --camel: #bb9457ff;
+  --dark-coffee: #432818ff;
+  --chocolate-brown: #99582aff;
+  --light-apricot: #ffe6a7ff;
 }
 
 * {
@@ -39,7 +47,7 @@ body {
   background-repeat: no-repeat;
   background-position: center;
   background-size: 100% 100%;
-  background-color: #bdded6;
+  background-color: var(--background-color);
   border-radius: 70px;
 
   overflow: hidden;
