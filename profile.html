@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -5,89 +6,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="styles/global.css" rel="stylesheet" />
     <link href="styles/profile.css" rel="stylesheet" />
-    <title>Stonely</title>
+    <script src="scripts/profile.js" defer></script>
+    <title>Stonely | Profile</title>
   </head>
-
   <body>
     <div id="main">
       <div id="iphone-outline">
         <div id="iphone-content">
-          <div class="screen-layout">
-            <header class="header">
-              <h1 style="font-size: 40px; font-weight: bold">
-                Create your profile!
-              </h1>
+          <div class="profile-screen">
+
+            <header class="profile-header">
+              <div class="header-row">
+                <h2>stonely<span>.</span></h2>
+                <span id="step-count">1 / 8</span>
+              </div>
+              <div class="progress-track">
+                <div id="progress-fill"></div>
+              </div>
             </header>
 
-            <main class="content">
-              <div class="inputer-container">
-                <label for="age">What is your age?:</label>
-                <input type="number" id="age" name="age" placeholder="Ex. 24" />
-              </div>
-
-              <div class="inputer-container">
-                <label for="energy">What is your energy level?</label>
-
-                <div class="radio-group">
-                  <label class="radio-option">
-                    <input type="radio" name="energy" value="low" />
-                    Low-key — I like taking it easy
-                  </label>
-
-                  <label class="radio-option">
-                    <input type="radio" name="energy" value="balanced" />
-                    Balanced — A little of everything
-                  </label>
-
-                  <label class="radio-option">
-                    <input type="radio" name="energy" value="high" />
-                    High energy — Always on the move
-                  </label>
-                </div>
-              </div>
-              <div class="inputer-container">
-                <label for="social">How social are you?</label>
-
-                <div class="radio-group">
-                  <label class="radio-option">
-                    <input type="radio" name="social" value="low" />
-                    Lone wolf — I enjoy my own company
-                  </label>
-
-                  <label class="radio-option">
-                    <input type="radio" name="social" value="small" />
-                    Small circle — A few close friends
-                  </label>
-
-                  <label class="radio-option">
-                    <input type="radio" name="social" value="high" />
-                    Social butterfly — The more, the merrier
-                  </label>
-                </div>
-              </div>
-              <div class="inputer-container">
-                <label for="weekend">What is your ideal weekend?</label>
-
-                <div class="radio-group">
-                  <label class="radio-option">
-                    <input type="radio" name="weekend" value="new" />
-                    Explore something new
-                  </label>
-
-                  <label class="radio-option">
-                    <input type="radio" name="weekend" value="friends" />
-                    Hanging out with friends
-                  </label>
-
-                  <label class="radio-option">
-                    <input type="radio" name="weekend" value="hobby" />
-                    Working on a hobby or project
-                  </label>
-                </div>
-              </div>
-
-              <a href="profile2.html">Continue</a>
+            <main class="profile-content">
+              <h1 id="question-title"></h1>
+              <p id="question-subtitle"></p>
+              <div id="answer-container"></div>
             </main>
+
+            <footer class="profile-footer">
+              <button id="back-btn" type="button">
+                Back
+              </button>
+              <button id="next-btn" type="button">
+                Continue →
+              </button>
+            </footer>
+
           </div>
         </div>
       </div>
