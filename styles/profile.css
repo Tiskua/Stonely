@@ -2,7 +2,7 @@
 
 /* Button styling */
 button {
-  background-color: var(--accent-color);
+  background-color: var(--color-accent);
   border: none;
   border-radius: 10px;
   padding: 12px 24px;
@@ -31,35 +31,66 @@ input[type="number"] {
 .radio-group {
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
   gap: 12px;
   width: 100%;
 }
 
 .radio-option {
   display: flex;
-  flex-direction: row;
   align-items: center;
-  gap: 5px;
+  justify-content: space-between;
+  padding: 12px 16px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
   cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.radio-option input {
+  position: absolute;
+  opacity: 0;
+}
+
+.radio-option:has(input:checked) {
+  border-color: #177d81;
+  background-color: rgba(23, 125, 129, 0.08);
+}
+
+.radio-option:has(input:focus-visible) {
+  outline: 2px solid #177d81;
+  outline-offset: 2px;
+}
+
+.radio-option:hover {
+  border-color: #177d81;
 }
 
 input[type="radio"] {
+  appearance: none;
   width: 18px;
   height: 18px;
+  min-width: 18px;
+  border: 2px solid #177d81;
+  border-radius: 4px;
+  background-color: transparent;
+  cursor: pointer;
   margin: 0;
-  accent-color: #177d81;
+}
+
+input[type="radio"]:checked {
+  background-color: #177d81;
+  box-shadow: inset 0 0 0 3px white;
 }
 
 .inputer-container label {
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 600;
   margin-bottom: 5px;
 }
 
 .radio-group label {
   font-size: 16px;
-  font-weight: normal;
+  font-weight: 400;
 }
 
 .question-label {

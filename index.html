@@ -5,44 +5,81 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="styles/global.css" rel="stylesheet" />
     <link href="styles/login.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/e8b61a6feb.js"
+      crossorigin="anonymous"
+    ></script>
+
     <title>Stonely</title>
   </head>
 
   <body>
     <div id="main">
       <div id="iphone-outline">
+        <div class="login-background"></div>
         <div id="iphone-content">
           <div class="screen-layout">
-            <header class="header">
-              <h2>Stonely</h2>
-            </header>
             <main class="content">
-              <h3>Welcome to:</h3>
-              <img
-                src="images\StonelyLogoPlaceholder.png"
+              <h1 class="title">Stonely</h1>
+              <h2 class="subtitle">Your little rock companion!</h2>
+
+              <!-- <img
+                src="images/rock-bg.webp"
                 alt="StonelyLogoPlaceholder"
                 style="width: 300px"
-              />
-
-              <p>Get Started</p>
-
-              <input
-                type="text"
-                id="username"
-                name="username"
-                placeholder="Enter your username"
-              />
-              <input
-                type="password"
-                id="password"
-                name="password"
-                placeholder="Enter your password"
-              />
-              <button><a href="profile.html">Login</a></button>
+              /> -->
             </main>
-            <footer class="footer">
-              <p>This is a footer!</p>
-            </footer>
+          </div>
+        </div>
+        <!-- Bottom sheet -->
+        <div id="bottom-sheet-overlay">
+          <div id="bottom-sheet">
+            <!-- <div class="sheet-handle"></div> -->
+            <h2 class="sheet-title">Welcome Back!</h2>
+            <h3 class="sheet-subtitle">
+              You're little rock has been waiting for you.
+            </h3>
+            <div
+              style="
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+                margin-top: 30px;
+              "
+            >
+              <div class="input-container">
+                <i class="input-icon fa-solid fa-envelope"></i>
+                <input
+                  type="text"
+                  id="username"
+                  name="username"
+                  class="custom-input"
+                  placeholder="Username"
+                />
+              </div>
+              <div class="input-container">
+                <i class="input-icon fa-solid fa-lock"></i>
+                <input
+                  type="password"
+                  id="password"
+                  name="password"
+                  class="custom-input"
+                  placeholder="Password"
+                />
+              </div>
+            </div>
+
+            <button class="login-btn">
+              <a href="profile.html">Login</a>
+              <i class="fa-solid fa-arrow-right"></i>
+            </button>
           </div>
         </div>
       </div>

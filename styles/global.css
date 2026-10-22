@@ -1,15 +1,16 @@
 :root {
-  --background-color: #ffe6a7;
-  --text-color: #424342;
-  --accent-color: #6f1d1b;
-  --green: #256d1bff;
-  --dark-spruce: #6f1d1b;
-  --light-gray: #d5d6d5;
-  --dark-wine: #6f1d1bff;
-  --camel: #bb9457ff;
-  --dark-coffee: #432818ff;
-  --chocolate-brown: #99582aff;
-  --light-apricot: #ffe6a7ff;
+  --color-primary: #3f523b;
+  --color-secondary: #788366;
+  --color-accent: #a58c75;
+
+  --color-background: #f5f0e4;
+  --color-surface: #ffffff;
+  --color-surface-alt: #d9c7aa;
+
+  --color-text: #3f523b;
+  --color-text-muted: #716c60;
+
+  --color-border: #d9c7aa;
 }
 
 * {
@@ -18,6 +19,7 @@
   box-sizing: border-box;
   text-decoration: none;
   color: inherit;
+  font-family: "Nunito", sans-serif;
 }
 
 body {
@@ -31,9 +33,7 @@ body {
   justify-content: center;
   align-items: center;
 
-  min-height: 100vh;
   min-height: 100dvh;
-  padding: 20px;
 }
 
 /* Responsive iPhone outline */
@@ -43,50 +43,44 @@ body {
   width: min(100%, 350px);
   aspect-ratio: 9 / 19.5;
 
+  background-color: var(--color-background);
+  border-radius: 70px;
+  overflow: hidden;
+}
+#iphone-outline::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+
   background-image: url("../images/iphone.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: 100% 100%;
-  background-color: var(--background-color);
-  border-radius: 70px;
 
-  overflow: hidden;
+  z-index: 30;
+  pointer-events: none;
 }
 
 /* Screen area inside the iPhone */
 #iphone-content {
   position: absolute;
   top: 8%;
-  left: 6%;
-  width: 88%;
-  height: 84%;
+  left: 5%;
+  width: 90%;
+  height: 90%;
 
   overflow-y: auto;
   overflow-x: hidden;
-
   scrollbar-width: none;
   overscroll-behavior: contain;
+
+  z-index: 1;
 }
 
 #iphone-content::-webkit-scrollbar {
   display: none;
 }
 
-/* Main content fills available space */
-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  /* Important changes */
-  justify-content: flex-start;
-  flex: 1 0 auto;
-
-  gap: 15px;
-  padding: 20px 15px;
-
-  overflow: visible;
-}
 .screen-layout {
   display: flex;
   flex-direction: column;
@@ -99,10 +93,10 @@ content {
   flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
 
-  gap: 15px;
+  /* gap: 15px; */
   overflow: visible;
 }
 
@@ -119,6 +113,7 @@ content {
   /* padding: 15px; */
   flex-shrink: 0;
   margin-bottom: 20px;
+  padding: 5px;
 }
 
 /* Footer stays at the bottom */
@@ -129,4 +124,39 @@ content {
 
   padding: 15px;
   flex-shrink: 0;
+}
+
+#bottom-sheet-overlay {
+  position: absolute;
+
+  top: 0;
+  bottom: 0;
+  left: 5px;
+  right: 3px;
+
+  z-index: 20;
+  pointer-events: none;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+#bottom-sheet {
+  width: 100%;
+  min-height: 55%;
+
+  background: var(--color-surface-alt);
+  border-radius: 40px 40px 0 0;
+  padding: 15px 24px;
+
+  pointer-events: auto;
+}
+
+.sheet-handle {
+  width: 40px;
+  height: 5px;
+  background: var(--color-border);
+  border-radius: 10px;
+  margin: 0 auto 20px;
 }

@@ -1,37 +1,93 @@
-/* Header stays at the top */
-.header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+@import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap");
 
-  padding: 15px;
-  flex-shrink: 0;
+.title {
+  font-family: "Fredoka";
+  font-weight: 600;
+  font-size: 70px;
+}
+.subtitle {
+  font-family: "Fredoka";
+  font-weight: 500;
+  font-size: 16px;
 }
 
-/* Footer stays at the bottom */
-.footer {
+.sheet {
+  width: 100%;
+  height: 100%;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
+  gap: 10px;
+  flex: 1;
 
-  padding: 15px;
-  flex-shrink: 0;
+  background-color: var(--color-surface-alt);
+  border-radius: 20px;
 }
 
-/* Button styling */
-button {
-  background-color: var(--accent-color);
-  border: none;
-  border-radius: 10px;
-  padding: 12px 24px;
+.sheet-title {
+  letter-spacing: 1.2px;
+  margin-top: 10px;
+  font-size: 25px;
+  font-weight: 900;
+}
+.sheet-subtitle {
+  width: 80%;
+  font-size: 16px;
+  font-weight: 300;
+}
+
+.input-container {
+  position: relative;
+  width: 300px; /* Adjust width as needed */
+}
+
+.custom-input {
+  width: 100%;
+  padding: 10px;
+  /* Extra padding on the right so text doesn't hide behind the icon */
+  padding-left: 40px;
+  border-radius: 15px;
+  box-sizing: border-box; /* Ensures padding doesn't affect total width */
+  background-color: var(--color-background);
+  color: var(--color-text);
+}
+
+.input-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%); /* Perfectly centers the icon vertically */
+  color: #888;
   cursor: pointer;
 }
 
-input {
-  width: 275px;
-  padding: 8px 12px;
-  border-radius: 10px;
-  outline-color: #177d81;
-  background-color: lightyellow;
-  border-color: #177d81;
+.login-btn {
+  width: 100%;
+  /* margin: 30px 20px 0 20px; */
+  margin-top: 30px;
+  background-color: var(--color-primary);
+  border: none;
+  border-radius: 14px;
+  padding: 12px 24px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+}
+
+.login-btn a {
+  margin-right: 10px;
+}
+
+.login-background {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  right: 3px;
+  height: 50%;
+
+  background-image: url("../images/rock-bg.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
