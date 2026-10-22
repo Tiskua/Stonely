@@ -1,7 +1,7 @@
 /* Header stays at the top */
 
 /* Button styling */
-button {
+a {
   background-color: var(--color-accent);
   border: none;
   border-radius: 10px;
