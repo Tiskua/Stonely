@@ -14,3 +14,116 @@
   border-radius: 35px;
   color: var(--color-text);
 }
+
+.happiness-bar-bg {
+  position: relative;
+  overflow: hidden;
+  transform: translateX(2.5%);
+
+  width: 95%;
+  height: 40px;
+  background: linear-gradient(
+    to right,
+    #e74c3c 0%,
+    #f39c12 25%,
+    #f1c40f 50%,
+    #2ecc71 75%,
+    #3498db 100%
+  );
+  border-radius: 30px;
+  border: 2px solid rgb(51, 51, 51);
+  margin-bottom: 20px;
+}
+
+.happiness-bar-cover {
+  width: 10%;
+  height: 100%;
+  background-color: rgb(160, 160, 160);
+  position: absolute;
+  right: 0;
+}
+
+#pet-gif {
+  position: absolute;
+  display: none;
+}
+
+#pet-gif {
+  top: 20px;
+  width: 200px;
+  height: auto;
+}
+
+#food-container {
+  position: absolute;
+  width: 200px;
+
+  top: 100px;
+  right: 30px;
+}
+
+#drink-container {
+  position: absolute;
+  top: 100px;
+  right: 30px;
+}
+
+#clean-container {
+  position: absolute;
+  top: 100px;
+  right: 30px;
+}
+
+.food {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+}
+
+.eating {
+  animation: eat 2s linear forwards;
+}
+
+.cleaning {
+  animation: clean 5s linear forwards;
+}
+
+@keyframes eat {
+  0% {
+    transform: translateY(0px) scale(1);
+  }
+  100% {
+    transform: translateY(50px) scale(0);
+  }
+}
+
+@keyframes clean {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes rollAndWalk {
+  0% {
+    transform: translateX(0) rotate(0deg);
+  }
+
+  49.99% {
+    transform: translateX(400px) rotate(360deg);
+  }
+
+  50% {
+    transform: translateX(-400px) rotate(0deg);
+  }
+
+  100% {
+    transform: translateX(0) rotate(360deg);
+  }
+}
+
+.rolling {
+  animation: rollAndWalk 10s linear forwards;
+}
