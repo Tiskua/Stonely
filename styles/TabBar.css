@@ -1,14 +1,13 @@
 .container {
   display: flex;
-
   width: 100%;
-  height: 50px;
+  height: 60px;
   align-items: center;
-  border-radius: 50px;
   justify-content: space-around;
-  color: #99582a;
+  color: #bb9457;
+  border-top: 1px solid gray;
 }
 
 .selected {
-  color: #bb9457;
+  color: #99582a;
 }

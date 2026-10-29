@@ -61,7 +61,7 @@
   cursor: pointer;
 }
 
-.login-btn {
+#login-btn {
   width: 100%;
   /* margin: 30px 20px 0 20px; */
   margin-top: 30px;
@@ -75,10 +75,6 @@
   color: white;
 }
 
-.login-btn a {
-  margin-right: 10px;
-}
-
 .login-background {
   position: absolute;
   top: 3px;
@@ -90,4 +86,21 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+}
+
+#login-btn {
+  flex: 1;
+  background: #177d81;
+  color: white;
+}
+
+#login-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+#error-msg {
+  margin-top: 10px;
+  font-size: 14;
+  color: rgb(176, 0, 0);
 }

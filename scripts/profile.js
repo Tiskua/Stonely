@@ -154,7 +154,7 @@ let currentStep = 0;
 
 const profile = {
   age: null,
-  energy: "balanced",
+  energy: null,
   social: null,
   weekend: null,
   matters: null,
@@ -327,7 +327,7 @@ function finishProfile() {
   console.log("Profile created:", profile);
 
   // Navigate to the next screen
-  window.location.href = "home.html";
+  window.location.href = "tabs/homepage.html";
 }
 
 renderQuestion();

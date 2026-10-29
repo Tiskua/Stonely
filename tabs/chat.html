@@ -4,13 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="../styles/global.css" rel="stylesheet" />
-    <link href="../styles/homepage.css" rel="stylesheet" />
+    <link href="../styles/chat.css" rel="stylesheet" />
     <link href="../styles/TabBar.css" rel="stylesheet" />
 
     <script
       src="https://kit.fontawesome.com/e8b61a6feb.js"
       crossorigin="anonymous"
     ></script>
+    <script hre></script>
 
     <title>Stonely</title>
   </head>
@@ -20,9 +21,36 @@
       <div id="iphone-outline">
         <div id="iphone-content">
           <div class="screen-layout">
-            <header class="header"></header>
             <main class="content">
-              <h1>CHAT</h1>
+              <div style="width: 100%">
+                <div class="person-container" data-userid="Rok AI">
+                  <div class="profile">
+                    <img src="../images/default-profile.png" async />
+                  </div>
+                  <div class="message-details">
+                    <span class="person">Rock AI</span>
+                    <span class="latest">This is the lastest message</span>
+                  </div>
+                </div>
+                <div class="person-container" data-userid="Person 1">
+                  <div class="profile">
+                    <img src="../images/default-profile.png" async />
+                  </div>
+                  <div class="message-details">
+                    <span class="person">Person 1</span>
+                    <span class="latest">This is the lastest message</span>
+                  </div>
+                </div>
+                <div class="person-container" data-userid="Person 2">
+                  <div class="profile">
+                    <img src="../images/default-profile.png" async />
+                  </div>
+                  <div class="message-details">
+                    <span class="person">Person 2</span>
+                    <span class="latest">This is the lastest message</span>
+                  </div>
+                </div>
+              </div>
             </main>
             <footer>
               <tab-bar selected="chat"></tab-bar>
@@ -32,5 +60,6 @@
       </div>
     </div>
     <script src="../TabBar.js"></script>
+    <script src="../scripts/chat.js"></script>
   </body>
 </html>

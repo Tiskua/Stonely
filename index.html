@@ -15,6 +15,7 @@
       src="https://kit.fontawesome.com/e8b61a6feb.js"
       crossorigin="anonymous"
     ></script>
+    <script src="scripts/login.js" defer></script>
 
     <title>Stonely</title>
   </head>
@@ -28,12 +29,6 @@
             <main class="content">
               <h1 class="title">Stonely</h1>
               <h2 class="subtitle"></h2>
-
-              <!-- <img
-                src="images/rock-bg.webp"
-                alt="StonelyLogoPlaceholder"
-                style="width: 300px"
-              /> -->
             </main>
           </div>
         </div>
@@ -75,9 +70,10 @@
                 />
               </div>
             </div>
+            <p id="error-msg"></p>
 
-            <button class="login-btn">
-              <a href="profile.html">Login</a>
+            <button id="login-btn">
+              Login
               <i class="fa-solid fa-arrow-right"></i>
             </button>
           </div>
