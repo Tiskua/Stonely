@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <link href="../styles/global.css" rel="stylesheet" />
     <link href="../styles/chat.css" rel="stylesheet" />
     <link href="../styles/TabBar.css" rel="stylesheet" />
@@ -11,7 +12,6 @@
       src="https://kit.fontawesome.com/e8b61a6feb.js"
       crossorigin="anonymous"
     ></script>
-    <script hre></script>
 
     <title>Stonely</title>
   </head>
@@ -22,11 +22,15 @@
         <div id="iphone-content">
           <div class="screen-layout">
             <main class="content">
+              <!-- All Messages container -->
               <div style="width: 100%">
+                <!-- Individual Message Container -->
                 <div class="person-container" data-userid="Rok AI">
+                  <!-- Profile Image -->
                   <div class="profile">
-                    <img src="../images/default-profile.png" async />
+                    <img src="../images/rok-logo.png" async />
                   </div>
+                  <!-- Latest Message -->
                   <div class="message-details">
                     <span class="person">Rock AI</span>
                     <span class="latest">This is the lastest message</span>
@@ -50,8 +54,36 @@
                     <span class="latest">This is the lastest message</span>
                   </div>
                 </div>
+                <div class="person-container" data-userid="Person 2">
+                  <div class="profile">
+                    <img src="../images/default-profile.png" async />
+                  </div>
+                  <div class="message-details">
+                    <span class="person">Person 2</span>
+                    <span class="latest">This is the lastest message</span>
+                  </div>
+                </div>
+                <div class="person-container" data-userid="Person 2">
+                  <div class="profile">
+                    <img src="../images/default-profile.png" async />
+                  </div>
+                  <div class="message-details">
+                    <span class="person">Person 2</span>
+                    <span class="latest">This is the lastest message</span>
+                  </div>
+                </div>
+                <div class="person-container" data-userid="Person 2">
+                  <div class="profile">
+                    <img src="../images/default-profile.png" async />
+                  </div>
+                  <div class="message-details">
+                    <span class="person">Person 2</span>
+                    <span class="latest">This is the lastest message</span>
+                  </div>
+                </div>
               </div>
             </main>
+            <!-- Bottom Tabbar -->
             <footer>
               <tab-bar selected="chat"></tab-bar>
             </footer>

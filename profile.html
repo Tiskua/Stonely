@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en">
   <head>
@@ -6,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="styles/global.css" rel="stylesheet" />
     <link href="styles/profile.css" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
+      rel="stylesheet"
+    />
     <script src="scripts/profile.js" defer></script>
     <title>Stonely | Profile</title>
   </head>
@@ -14,6 +17,7 @@
       <div id="iphone-outline">
         <div id="iphone-content">
           <div class="profile-screen">
+            <!-- Header (Logo & current progress) -->
 
             <header class="profile-header">
               <div class="header-row">
@@ -24,6 +28,7 @@
                 <div id="progress-fill"></div>
               </div>
             </header>
+            <!-- Container for the current question -->
 
             <main class="profile-content">
               <h1 id="question-title"></h1>
@@ -31,15 +36,11 @@
               <div id="answer-container"></div>
             </main>
 
+            <!-- Footer (Navigate between questions) -->
             <footer class="profile-footer">
-              <button id="back-btn" type="button">
-                Back
-              </button>
-              <button id="next-btn" type="button">
-                Continue →
-              </button>
+              <button id="back-btn" type="button">Back</button>
+              <button id="next-btn" type="button">Continue →</button>
             </footer>
-
           </div>
         </div>
       </div>

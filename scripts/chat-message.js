@@ -26,24 +26,22 @@ async function sendMessage() {
   const message = input.value.trim();
 
   if (!message) return;
-
-  addMessage("Person", message);
-  if (userId == "Rok AI") {
-    await sleep(getRandomIntInclusive(1000, 3000));
-
-    const AIMessage =
-      rockResponses[getRandomIntInclusive(0, rockResponses.length - 1)];
-    addMessage("Rok AI", AIMessage);
-  }
-
   input.value = "";
   input.style.height = "auto";
+
+  addMessage("You", message);
+  if (userId == "Rok AI") {
+    await sleep(getRandomIntInclusive(800, 1000));
+    const AIMessage =
+      rockResponses[getRandomIntInclusive(0, rockResponses.length - 1)];
+    await addMessage("Rok AI", AIMessage);
+  }
 
   // Scroll to the newest message
   messagesContainer.scrollTop = messagesContainer.scrollHeight;
 }
 
-function addMessage(person, message) {
+async function addMessage(person, message) {
   const isAi = person == "Rok AI";
   const side = isAi ? "left" : "right";
 
@@ -73,9 +71,23 @@ function addMessage(person, message) {
   messagesContainer.insertAdjacentHTML("beforeend", messageHTML);
 
   const newMessage = messagesContainer.lastElementChild;
-
   newMessage.querySelector(".chat-text").textContent = message;
   newMessage.querySelector(".chat-person").textContent = person;
+
+  const duration = 400;
+  const count = getRandomIntInclusive(3, 12);
+  if (isAi) {
+    for (let i = 1; i <= count; i++) {
+      newMessage.querySelector(".chat-text").textContent = ".".repeat(
+        (i % 3) + 1,
+      );
+      await sleep(duration);
+    }
+
+    newMessage.querySelector(".chat-text").textContent = message;
+  } else {
+    newMessage.querySelector(".chat-text").textContent = message;
+  }
 }
 
 function getRandomIntInclusive(min, max) {

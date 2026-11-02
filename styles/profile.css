@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap");
+
 .profile-screen {
   height: 100%;
   min-height: 0;
@@ -5,7 +7,6 @@
   flex-direction: column;
   color: #263735;
   overflow: hidden;
-  font-family: inherit;
 }
 
 .profile-header {
@@ -24,6 +25,7 @@
   margin: 0;
   font-size: 22px;
   letter-spacing: -0.8px;
+  font-family: "Fredoka", sans-serif;
 }
 
 .header-row h2 span {
@@ -46,7 +48,7 @@
 #progress-fill {
   width: 25%;
   height: 100%;
-  background: #177d81;
+  background: #4b9b60;
   border-radius: inherit;
   transition: width 0.3s ease;
 }
@@ -102,7 +104,7 @@
 }
 
 .answer-option.selected {
-  border-color: #177d81;
+  border-color: #4b9b60;
   background: #eaf5f1;
 }
 
@@ -131,7 +133,7 @@
 }
 
 .answer-option.selected .answer-circle {
-  border: 5px solid #177d81;
+  border: 5px solid #4b9b60;
 }
 
 .age-input {
@@ -144,6 +146,7 @@
   border: 1.5px solid #e1e6e2;
   border-radius: 12px;
   box-sizing: border-box;
+  background: #edf1ee;
 }
 
 .age-input:focus {
@@ -173,11 +176,12 @@
 #back-btn {
   background: #edf1ee;
   color: #425651;
+  border: 1px solid rgb(149, 148, 148);
 }
 
 #next-btn {
   flex: 1;
-  background: #177d81;
+  background: #4b9b60;
   color: white;
 }
 
@@ -226,15 +230,15 @@
 }
 
 .environment-option:hover {
-  border-color: #177d81;
+  border-color: #4b9b60;
 }
 
 .environment-option.selected {
-  border: 2px solid #177d81;
+  border: 2px solid #4b9b60;
   background: #eaf5f1;
 }
 
 .environment-option:focus-visible {
-  outline: 3px solid #177d81;
+  outline: 3px solid #4b9b60;
   outline-offset: 3px;
 }

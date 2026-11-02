@@ -11,6 +11,9 @@
   grid-template-rows: repeat(2, 80px);
   gap: 10px;
   max-width: 400px;
+
+  padding: 12px 3px;
+  border-radius: 20px;
 }
 
 .grid-container button {
@@ -22,13 +25,67 @@
   color: var(--color-text);
 }
 
+.grid-container button {
+  transition:
+    background-color 0.2s ease,
+    transform 0.15s ease;
+}
+
+.grid-container button:nth-child(1) {
+  background-color: #619b68;
+}
+.grid-container button:nth-child(2) {
+  background-color: #68a8c4;
+}
+.grid-container button:nth-child(3) {
+  background-color: #d7898b;
+}
+.grid-container button:nth-child(4) {
+  background-color: #b48b54;
+}
+.grid-container button:nth-child(5) {
+  background-color: #9475b2;
+}
+.grid-container button:nth-child(6) {
+  background-color: #d78a4c;
+}
+
+.grid-container button:nth-child(1):hover {
+  background-color: #4b8552;
+}
+
+.grid-container button:nth-child(2):hover {
+  background-color: #4d91b0;
+}
+
+.grid-container button:nth-child(3):hover {
+  background-color: #c46d70;
+}
+
+.grid-container button:nth-child(4):hover {
+  background-color: #99713e;
+}
+
+.grid-container button:nth-child(5):hover {
+  background-color: #795a9b;
+}
+
+.grid-container button:nth-child(6):hover {
+  background-color: #bd7034;
+}
+
+/* Slightly shrink buttons when clicked */
+.grid-container button:active {
+  transform: scale(0.95);
+}
+
 .happiness-bar-bg {
   position: relative;
   overflow: hidden;
   transform: translateX(2.5%);
 
   width: 95%;
-  height: 40px;
+  height: 20px;
   background: linear-gradient(
     to right,
     #e74c3c 0%,
@@ -161,3 +218,18 @@
 .rolling {
   animation: rollAndWalk 10s linear forwards;
 }
+
+/* COME BACK TO LATER */
+
+/* .environment-background {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  right: 3px;
+  height: 90%;
+
+  background-image: url("../images/desert-bg.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+} */

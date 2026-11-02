@@ -1,4 +1,11 @@
 const questions = [
+  // {
+  //   key: "name",
+  //   title: "What is your preffered name?",
+  //   subtitle: "",
+  //   type: "name",
+  // },
+
   {
     key: "age",
     title: "How old are you?",
@@ -129,7 +136,7 @@ const questions = [
       {
         value: "forest",
         title: "Forest",
-        image: "../images/rock-forest.webp",
+        image: "../images/rock-forest.png",
       },
       {
         value: "beach",
@@ -188,7 +195,9 @@ function renderQuestion() {
   container.replaceChildren();
 
   if (question.type === "number") {
-    renderAgeInput(question);
+    renderAgeInput();
+  } else if (question.type == "name") {
+    renderNameInput();
   } else if (question.type === "environment") {
     renderEnvironment(question);
   } else {
@@ -198,7 +207,7 @@ function renderQuestion() {
   updateNextButton();
 }
 
-function renderAgeInput(question) {
+function renderAgeInput() {
   const input = document.createElement("input");
 
   input.type = "number";
@@ -212,6 +221,22 @@ function renderAgeInput(question) {
   input.addEventListener("input", () => {
     profile.age = input.value === "" ? null : Number(input.value);
 
+    updateNextButton();
+  });
+
+  container.appendChild(input);
+}
+
+function renderNameInput() {
+  const input = document.createElement("input");
+
+  input.type = "text";
+  input.className = "age-input";
+  input.placeholder = "Enter your name";
+  input.value = profile.name ?? "";
+
+  input.addEventListener("input", () => {
+    profile.name = input.value === "" ? null : Number(input.value);
     updateNextButton();
   });
 
@@ -327,7 +352,7 @@ function finishProfile() {
   console.log("Profile created:", profile);
 
   // Navigate to the next screen
-  window.location.href = "tabs/homepage.html";
+  window.location.href = "creating.html";
 }
 
 renderQuestion();

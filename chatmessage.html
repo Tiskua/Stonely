@@ -19,41 +19,28 @@
       <div id="iphone-outline">
         <div id="iphone-content">
           <div class="screen-layout">
+            <!-- Header (Back btn & Receiver Name) -->
             <div class="header-content">
               <a href="/tabs/chat.html" class="header-back"
                 ><i class="fa-solid fa-chevron-left"></i>Back</a
               >
               <span class="person-title">Rock AI</span>
-              <span></span>
             </div>
             <main class="content">
-              <div class="messages">
-                <div class="message-container left">
-                  <img src="/images/rok-logo.png" class="profile-image" />
-                  <div class="bubble">
-                    <div class="chat-text">Hi from AI</div>
-                    <div class="chat-person">AI</div>
-                  </div>
-                </div>
+              <!-- Messages container -->
 
-                <div class="message-container right">
-                  <div class="bubble">
-                    <div class="chat-text">Hi from Person</div>
-                    <div class="chat-person">Person</div>
-                  </div>
-                  <img
-                    src="/images/default-profile.png"
-                    class="profile-image"
-                  />
-                </div>
-              </div>
-
+              <div class="messages"></div>
+              <!-- Chat toolbar for sending messages -->
               <div class="chat-toolbar">
+                <!-- Text input -->
+
                 <textarea
                   id="chat-input"
                   placeholder="Message..."
                   rows="1"
                 ></textarea>
+                <!-- Send Button -->
+
                 <button id="send-btn" type="button" aria-label="Send message">
                   <i class="fa-solid fa-paper-plane" aria-hidden="true"></i>
                 </button>

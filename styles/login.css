@@ -4,6 +4,9 @@
   font-family: "Fredoka";
   font-weight: 600;
   font-size: 70px;
+
+  color: white;
+  text-shadow: 0 3px 12px rgba(0, 0, 0, 0.8);
 }
 .subtitle {
   font-family: "Fredoka";
@@ -61,6 +64,7 @@
   cursor: pointer;
 }
 
+#create-btn,
 #login-btn {
   width: 100%;
   /* margin: 30px 20px 0 20px; */
@@ -88,13 +92,15 @@
   background-repeat: no-repeat;
 }
 
-#login-btn {
+#login-btn,
+#create-btn {
   flex: 1;
-  background: #177d81;
+  background: var(--color-accent);
   color: white;
 }
 
-#login-btn:disabled {
+#login-btn:disabled,
+#create-btn:disabled {
   opacity: 0.4;
   cursor: not-allowed;
 }
@@ -102,5 +108,30 @@
 #error-msg {
   margin-top: 10px;
   font-size: 14;
-  color: rgb(176, 0, 0);
+  color: var(--color-error);
+}
+
+.signup-footer {
+  margin-top: 24px;
+  text-align: center;
+  padding-bottom: 12px;
+}
+
+.signup-footer p {
+  font-family: "Nunito", sans-serif;
+  font-size: 14px;
+  color: #777;
+  margin: 0;
+}
+
+.signup-link {
+  color: var(--color-accent);
+  font-weight: 800;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.signup-link:hover {
+  color: #15686b;
+  text-decoration: underline;
 }

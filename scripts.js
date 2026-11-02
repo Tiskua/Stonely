@@ -1,48 +1,62 @@
-let click = 0;
+// All the timers
 let petTimerId;
+let clickCount = 0;
 let waterTimerId;
 let feedTimerId;
 let cleanTimerId;
 let walkTimerId;
-let dirtinessLevel = 0;
 let slingshotTimerID;
+let barTimerId;
 
 let actionsEnabled = true;
 
+// Attributes about rock
 let happiness = 100;
-let barTimerId;
+let dirtinessLevel = 0;
 
+// Animation Elements
 const dirtinessOverlay = document.querySelector("#dirt-overlay");
+const foodContainer = document.querySelector("#food-container");
+const petGif = document.querySelector("#pet-gif");
+const drinkGif = document.querySelector("#drink-gif");
+const showerElement = document.querySelector("#shower-gif");
+const bubblesElement = document.querySelector("#bubbles-gif");
 
+const rockElement = document.querySelector("#rock");
+
+// Get the name of the rock
+const rockNameTitle = document.querySelector("#rock-name");
+
+const rockName = localStorage.getItem("rockName");
+if (rockName) {
+  rockNameTitle.textContent = rockName;
+}
+
+// Pet Animation
 function togglePet() {
-  const element = document.querySelector("#pet-gif");
-
-  if (getComputedStyle(element).display === "none") {
-    click = 0;
-    element.style.display = "block";
+  if (getComputedStyle(petGif).display === "none") {
+    petCount = 0;
+    petGif.style.display = "block";
   }
 
-  click++;
+  clickCount++;
 
   clearTimeout(petTimerId);
 
   petTimerId = setTimeout(
     () => {
       element.style.display = "none";
-      click = 0;
+      clickCount = 0;
       happiness += 1;
     },
-    1000 + (click - 1) * 250,
+    1000 + (clickCount - 1) * 250,
   );
 }
 
+//Feed animation
 function feed() {
-  if (!actionsEnabled) {
-    return;
-  }
-  const container = document.querySelector("#food-container");
+  if (!actionsEnabled) return;
 
-  // Create a new food image
   const food = document.createElement("img");
   food.src = "../images/food.gif";
   food.classList.add("food", "eating");
@@ -50,10 +64,11 @@ function feed() {
   food.style.left = `${Math.random() * 40 - 20}px`;
   food.style.top = `${Math.random() * 20 - 10}px`;
 
-  // Add it to the container
-  container.appendChild(food);
+  foodContainer.appendChild(food);
 
-  // Remove it after the animation finishes
+  updateDirtiness(5, 8);
+
+  // Remove after the animation finishes
   food.addEventListener(
     "animationend",
     () => {
@@ -61,69 +76,63 @@ function feed() {
     },
     { once: true },
   );
-  updateDirtiness(5, 8);
 }
 
+//Drink Animation
 function drink() {
-  if (!actionsEnabled) {
-    return;
-  }
-  const element = document.querySelector("#drink-gif");
+  if (!actionsEnabled) return;
 
-  if (getComputedStyle(element).display === "none") {
-    click = 0;
-    element.style.display = "block";
+  if (getComputedStyle(drinkGif).display === "none") {
+    clickCount = 0;
+    drinkGif.style.display = "block";
   }
 
-  click++;
+  clickCount++;
 
   clearTimeout(waterTimerId);
 
   waterTimerId = setTimeout(
     () => {
       element.style.display = "none";
-      click = 0;
+      clickCount = 0;
       happiness += 3;
     },
-    2000 + (click - 1) * 500,
+    2000 + (clickCount - 1) * 500,
   );
   updateDirtiness(4, 6);
 }
 
+//Clean animation
 function clean() {
-  if (!actionsEnabled) {
-    return;
-  }
-  const showerElement = document.querySelector("#shower-gif");
-  const bubblesElement = document.querySelector("#bubbles-gif");
-  const dirtyElement = document.querySelector("#dirt-overlay");
+  if (!actionsEnabled) return;
 
   showerElement.style.display = "block";
   bubblesElement.style.display = "block";
-
-  dirtyElement.classList.add("cleaning");
+  dirtinessOverlay.classList.add("cleaning");
 
   clearTimeout(cleanTimerId);
 
   cleanTimerId = setTimeout(() => {
     showerElement.style.display = "none";
     bubblesElement.style.display = "none";
-    happiness = 100;
+
+    happiness += 30;
+    dirtinessLevel = 0;
+    updateDirtiness(0, 0);
   }, 5000);
 }
 
+//Walk Animation
 const sound = new Audio("../assets/audio/rollin.mp3");
 function walk() {
-  if (!actionsEnabled) {
-    return;
-  }
-  const rockElement = document.querySelector("#rock");
+  if (!actionsEnabled) return;
 
   rockElement.classList.add("rolling");
   dirtinessOverlay.classList.add("rolling");
-  sound.currentTime = 0;
+
   actionsEnabled = false;
 
+  sound.currentTime = 0;
   sound.play();
 
   clearTimeout(walkTimerId);
@@ -138,6 +147,7 @@ function walk() {
   updateDirtiness(10, 20);
 }
 
+//Sling shot animation
 function slingshot() {
   if (!actionsEnabled) {
     return;
@@ -158,13 +168,7 @@ function slingshot() {
   //play rock animation as he disappears into the distance
 }
 
-/* 
-Every so often, the happinenss bar decreases slightly
-Doing an action increases his happiness by a certain amount
-An action will also cause his dirtiness factor to increase
-
-
-*/
+// Happiness bar logic
 const happinessCover = document.querySelector(".happiness-bar-cover");
 
 function decreaseHappinessBar() {
@@ -178,16 +182,16 @@ function decreaseHappinessBar() {
 
     happiness -= 0.1;
     happinessCover.style.width = `${100 - Math.min(100, happiness)}%`;
-  }, 50);
+  }, 1000);
 }
 
 decreaseHappinessBar();
 
+// Util functions
 function getRandomIntInclusive(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 function updateDirtiness(min, max) {
   dirtinessLevel = dirtinessLevel + getRandomIntInclusive(min, max);
   dirtinessOverlay.style.opacity = dirtinessLevel / 100;
-  console.log("Opacity", dirtinessOverlay.style.opacity);
 }

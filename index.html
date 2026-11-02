@@ -23,19 +23,20 @@
   <body>
     <div id="main">
       <div id="iphone-outline">
+        <!-- Full screen background -->
+
         <div class="login-background"></div>
         <div id="iphone-content">
           <div class="screen-layout">
+            <!-- Top of screen -->
             <main class="content">
               <h1 class="title">Stonely</h1>
-              <h2 class="subtitle"></h2>
             </main>
           </div>
         </div>
         <!-- Bottom sheet -->
         <div id="bottom-sheet-overlay">
           <div id="bottom-sheet">
-            <!-- <div class="sheet-handle"></div> -->
             <h2 class="sheet-title">Welcome Back!</h2>
             <h3 class="sheet-subtitle">
               Your little rock has been waiting for you.
@@ -49,6 +50,8 @@
                 margin-top: 30px;
               "
             >
+              <!-- Username Input -->
+
               <div class="input-container">
                 <i class="input-icon fa-solid fa-envelope"></i>
                 <input
@@ -59,6 +62,8 @@
                   placeholder="Username"
                 />
               </div>
+              <!-- Password Input -->
+
               <div class="input-container">
                 <i class="input-icon fa-solid fa-lock"></i>
                 <input
@@ -70,12 +75,20 @@
                 />
               </div>
             </div>
+            <!-- Error message (Not really needed since we don't have auth)-->
             <p id="error-msg"></p>
 
+            <!-- Login Button -->
             <button id="login-btn">
               Login
-              <i class="fa-solid fa-arrow-right"></i>
+              <i class="fa-solid fa-arrow-right" style="margin-left: 5px"></i>
             </button>
+            <div class="signup-footer">
+              <p>
+                Don't have an account?
+                <a href="signup.html" class="signup-link">Create Account</a>
+              </p>
+            </div>
           </div>
         </div>
       </div>

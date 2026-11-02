@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="styles/global.css" rel="stylesheet" />
+    <link href="styles/creating.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/e8b61a6feb.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="scripts/creating.js" defer></script>
+
+    <title>Stonely</title>
+  </head>
+
+  <body>
+    <div id="main">
+      <div id="iphone-outline">
+        <div id="iphone-content">
+          <div class="screen-layout">
+            <main class="content">
+              <!-- Main Loading Container -->
+              <div id="creation-loading" class="creation-container">
+                <div class="rock-animation">
+                  <i class="fa-solid fa-gem"></i>
+                </div>
+
+                <h1>Finding your new friend!</h1>
+                <!-- Current progress status -->
+                <p id="loading-message" aria-live="polite">
+                  Finding the perfect rock...
+                </p>
+                <!-- Progress bar -->
+                <div
+                  class="progress-track"
+                  role="progressbar"
+                  aria-label="Rock creation progress"
+                  aria-valuemin="0"
+                  aria-valuemax="100"
+                  aria-valuenow="0"
+                >
+                  <div id="progress-fill"></div>
+                </div>
+
+                <span id="progress-percentage">0%</span>
+              </div>
+              <!-- Container after loading finishes -->
+              <div id="rock-reveal" class="rock-reveal" hidden>
+                <h1>Meet your new friend!</h1>
+                <p>Your very own rock is ready to meet you.</p>
+
+                <div class="rock-image-container">
+                  <!-- Replace this with rock image later -->
+                  <div class="rock-placeholder">
+                    <i class="fa-solid fa-gem"></i>
+                  </div>
+                </div>
+                <!-- Input for rock name -->
+
+                <div class="rock-naming">
+                  <label for="rock-name"
+                    >What do you want to name your rock?</label
+                  >
+
+                  <input
+                    type="text"
+                    id="rock-name"
+                    placeholder="Enter a name..."
+                    maxlength="20"
+                    autocomplete="off"
+                  />
+                  <!-- Homepage button -->
+
+                  <button id="continue-btn" type="button">
+                    Let's Go!
+                    <i class="fa-solid fa-arrow-right"></i>
+                  </button>
+                </div>
+              </div>
+            </main>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

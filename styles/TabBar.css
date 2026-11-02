@@ -5,7 +5,8 @@
   align-items: center;
   justify-content: space-around;
   color: #bb9457;
-  border-top: 1px solid gray;
+  border-top: 2px solid #99582a;
+  z-index: 1000;
 }
 
 .selected {
