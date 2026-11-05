@@ -1,16 +1,27 @@
+.header-container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0 15px;
+}
+
+.settings-container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  width: 100%;
+}
 .settings-section {
+  width: 100%;
   list-style-type: none;
   padding: 0;
   margin: 0;
-  font-size: 50px;
-}
-
-.settings-bg {
+  font-size: 25px;
   border: 2px solid #efefc3;
   background-color: #bb9457;
-  padding: 15px;
 
-  /* max-width: 200px; */
   border-radius: 20px;
 }
 
@@ -18,19 +29,14 @@
   list-style-type: none;
   padding: 0;
   margin: 10px 0;
-}
-
-.settings-button {
-  padding: 14px 16px;
-  border-radius: 10px;
+  padding: 10px 15px;
+  display: flex;
+  gap: 15px;
   cursor: pointer;
-  transition: background-color 0.2s ease;
 }
 
-.settings-button:hover {
-  background-color: #e8e8e8;
-}
-
-.settings-button:active {
-  background-color: #d6d6d6;
+.settings-section li:hover {
+  padding: 10px 15px;
+  border-radius: 10px;
+  background-color: #99582a;
 }

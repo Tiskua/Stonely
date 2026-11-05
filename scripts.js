@@ -10,10 +10,6 @@ let barTimerId;
 
 let actionsEnabled = true;
 
-// Attributes about rock
-let happiness = 100;
-let dirtinessLevel = 0;
-
 // Animation Elements
 const dirtinessOverlay = document.querySelector("#dirt-overlay");
 const foodContainer = document.querySelector("#food-container");
@@ -23,6 +19,14 @@ const showerElement = document.querySelector("#shower-gif");
 const bubblesElement = document.querySelector("#bubbles-gif");
 
 const rockElement = document.querySelector("#rock");
+
+// Attributes about rock
+const stored_happiness = localStorage.getItem("happiness_level");
+let happiness = parseFloat(stored_happiness, 10) ?? 100;
+
+const stored_dirtiness = localStorage.getItem("dirtiness_level");
+let dirtinessLevel = parseInt(stored_dirtiness, 10) ?? 0;
+dirtinessOverlay.style.opacity = dirtinessLevel / 100;
 
 // Get the name of the rock
 const rockNameTitle = document.querySelector("#rock-name");
@@ -45,9 +49,9 @@ function togglePet() {
 
   petTimerId = setTimeout(
     () => {
-      element.style.display = "none";
+      petGif.style.display = "none";
       clickCount = 0;
-      happiness += 1;
+      updateHappiness(1);
     },
     1000 + (clickCount - 1) * 250,
   );
@@ -66,7 +70,7 @@ function feed() {
 
   foodContainer.appendChild(food);
 
-  updateDirtiness(5, 8);
+  updateDirtiness(1, 3);
 
   // Remove after the animation finishes
   food.addEventListener(
@@ -93,9 +97,9 @@ function drink() {
 
   waterTimerId = setTimeout(
     () => {
-      element.style.display = "none";
+      drinkGif.style.display = "none";
       clickCount = 0;
-      happiness += 3;
+      updateHappiness(3);
     },
     2000 + (clickCount - 1) * 500,
   );
@@ -115,10 +119,10 @@ function clean() {
   cleanTimerId = setTimeout(() => {
     showerElement.style.display = "none";
     bubblesElement.style.display = "none";
+    dirtinessOverlay.classList.remove("cleaning");
 
-    happiness += 30;
-    dirtinessLevel = 0;
-    updateDirtiness(0, 0);
+    updateHappiness(30);
+    resetDirtiness();
   }, 5000);
 }
 
@@ -142,7 +146,7 @@ function walk() {
     dirtinessOverlay.classList.remove("rolling");
     sound.pause();
     actionsEnabled = true;
-    happiness += 20;
+    updateHappiness(20);
   }, 10000);
   updateDirtiness(10, 20);
 }
@@ -179,8 +183,8 @@ function decreaseHappinessBar() {
       clearInterval(barTimerId);
       return;
     }
+    updateHappiness(-0.1);
 
-    happiness -= 0.1;
     happinessCover.style.width = `${100 - Math.min(100, happiness)}%`;
   }, 1000);
 }
@@ -191,7 +195,20 @@ decreaseHappinessBar();
 function getRandomIntInclusive(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
+
+function resetDirtiness() {
+  dirtinessLevel = 0;
+  dirtinessOverlay.style.opacity = 0;
+  localStorage.setItem("dirtiness_level", 0);
+}
 function updateDirtiness(min, max) {
   dirtinessLevel = dirtinessLevel + getRandomIntInclusive(min, max);
   dirtinessOverlay.style.opacity = dirtinessLevel / 100;
+  console.log(dirtinessLevel);
+  localStorage.setItem("dirtiness_level", dirtinessLevel);
+}
+
+function updateHappiness(value) {
+  happiness += value;
+  localStorage.setItem("happiness_level", happiness);
 }

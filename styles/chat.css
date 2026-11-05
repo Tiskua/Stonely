@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Fredoka:wdth,wght@97.9,300..700&family=Nunito:ital,wght@0,200;1,200&display=swap");
 .person-container {
   display: flex;
   flex-direction: row;
@@ -30,10 +31,13 @@
 .message-details > .person {
   font-size: 16px;
   font-weight: bold;
+  font-family: "Fredoka";
 }
 
 .message-details > .latest {
   font-size: 16px;
+  font-family: "Fredoka";
+  font-weight: 300;
 }
 
 /* Chat Message */

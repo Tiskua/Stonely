@@ -6,6 +6,7 @@ const loadingMessage = document.getElementById("loading-message");
 const progressTrack = document.querySelector(".progress-track");
 const rockNameInput = document.getElementById("rock-name");
 const continueBtn = document.getElementById("continue-btn");
+const rockImage = document.getElementById("rock");
 
 const duration = 8000;
 
@@ -80,6 +81,7 @@ function animateLoading(timestamp) {
 function revealRock() {
   loadingContainer.hidden = true;
   revealContainer.hidden = false;
+  rockImage.classList.add("reveal-animation");
 }
 
 requestAnimationFrame(animateLoading);

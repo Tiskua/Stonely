@@ -1,9 +1,9 @@
 const personContainers = document.querySelectorAll(".person-container");
 
-personContainers.forEach((container, index) => {
-  container.addEventListener("click", (event) => {
-    const userid = container.dataset.userid;
-    console.log(userid);
-    window.location.href = `/chatmessage.html?user=${encodeURIComponent(userid)}`;
+personContainers.forEach((container) => {
+  container.addEventListener("click", (_) => {
+    const person = container.querySelector(".person");
+    const name = person.textContent;
+    window.location.href = `/chatmessage.html?user=${encodeURIComponent(name)}`;
   });
 });

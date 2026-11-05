@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="styles/global.css" rel="stylesheet" />
     <link href="styles/settings.css" rel="stylesheet" />
+    <script
+      src="https://kit.fontawesome.com/e8b61a6feb.js"
+      crossorigin="anonymous"
+    ></script>
     <title>Stonely</title>
   </head>
 
@@ -14,23 +18,61 @@
         <div id="iphone-content">
           <div class="screen-layout">
             <header class="header">
-              <h1>Settings</h1>
+              <div class="header-container">
+                <a href="/tabs/homepage.html">
+                  <i class="fa-solid fa-chevron-left fa-xl"> </i
+                ></a>
+              </div>
             </header>
+            <div
+              style="
+                display: flex;
+                gap: 10;
+                align-items: center;
+                margin-bottom: 20px;
+              "
+            >
+              <img
+                src="../images/default-profile.png"
+                alt="rock"
+                style="width: 100px; height: 100px; object-fit: contain"
+                id="rock"
+              />
+              <h2>Branson</h2>
+            </div>
 
             <main class="content">
-              <div style="display: flex; flex-direction: column; gap: 30px">
-                <ul class="settings-section settings-bg">
-                  <li class="settings-button">Account</li>
-                  <li class="settings-button">Profile</li>
-                  <li class="settings-button">Rock</li>
-                  <li class="settings-button">Chat</li>
-                  <li class="settings-button">Notifications</li>
+              <div class="settings-container">
+                <ul class="settings-section">
+                  <li class="settings-button">
+                    <i class="fa-solid fa-user"></i>
+                    <span>Account</span>
+                  </li>
+                  <li class="settings-button">
+                    <i class="fa-solid fa-image-portrait"></i>
+                    <span>Profile</span>
+                  </li>
+                  <li class="settings-button">
+                    <i class="fa-solid fa-palette"></i>
+                    <span>Appearance</span>
+                  </li>
+                  <li class="settings-button">
+                    <i class="fa-solid fa-bell"></i>
+                    <span>Notifications</span>
+                  </li>
                 </ul>
-                <ul class="settings-section settings-bg">
-                  <li class="settings-button">Support</li>
-                  <li class="settings-button">About</li>
+                <ul class="settings-section">
+                  <li class="settings-button">
+                    <i class="fa-solid fa-circle-question"></i>
+                    <span>Support</span>
+                  </li>
+                  <li class="settings-button">
+                    <i class="fa-solid fa-circle-info"></i>
+                    <span>About</span>
+                  </li>
                 </ul>
               </div>
+              <footer style="margin-top: 40px">v1.0</footer>
             </main>
           </div>
         </div>
