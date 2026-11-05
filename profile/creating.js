@@ -97,5 +97,5 @@ continueBtn.addEventListener("click", () => {
   localStorage.setItem("rockName", rockName);
 
   // Navigate to the main game
-  window.location.href = "tabs/homepage.html";
+  window.location.replace("/tabs/homepage.html");
 });

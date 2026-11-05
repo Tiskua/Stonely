@@ -183,7 +183,7 @@ function decreaseHappinessBar() {
       clearInterval(barTimerId);
       return;
     }
-    updateHappiness(-0.1);
+    updateHappiness(-0.2);
 
     happinessCover.style.width = `${100 - Math.min(100, happiness)}%`;
   }, 1000);
@@ -204,11 +204,13 @@ function resetDirtiness() {
 function updateDirtiness(min, max) {
   dirtinessLevel = dirtinessLevel + getRandomIntInclusive(min, max);
   dirtinessOverlay.style.opacity = dirtinessLevel / 100;
-  console.log(dirtinessLevel);
+
   localStorage.setItem("dirtiness_level", dirtinessLevel);
 }
 
 function updateHappiness(value) {
   happiness += value;
+  if (happiness > 100) happiness = 100;
+  console.log("Happiness", happiness);
   localStorage.setItem("happiness_level", happiness);
 }
