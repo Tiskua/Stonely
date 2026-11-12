@@ -23,9 +23,13 @@ const bubblesElement = document.querySelector("#bubbles-gif");
 const rockElement = document.querySelector("#rock-container");
 
 // Attributes about rock
-const stored_happiness = localStorage.getItem("happiness_level");
-let happiness = parseFloat(stored_happiness, 10) ?? 100;
+const storedHappiness = localStorage.getItem("happiness_level");
 
+let happiness = storedHappiness !== null ? Number(storedHappiness) : 100;
+
+if (!Number.isFinite(happiness)) {
+  happiness = 100;
+}
 const stored_dirtiness = localStorage.getItem("dirtiness_level");
 let dirtinessLevel = parseInt(stored_dirtiness, 10) ?? 0;
 dirtinessOverlay.style.opacity = dirtinessLevel / 100;
@@ -38,11 +42,19 @@ if (rockName) {
   rockNameTitle.textContent = rockName;
 }
 
+// DEATH SCREEN
+const deathOverlay = document.getElementById("death-background");
+const restartButton = document.getElementById("restart-btn");
+
+restartButton.addEventListener("click", () => {
+  window.location.href = "/index.html";
+});
+
 // Pet Animation
 function togglePet() {
   if (!actionsEnabled) return;
   if (getComputedStyle(petGif).display === "none") {
-    petCount = 0;
+    clickCount = 0;
     petGif.style.display = "block";
   }
 
@@ -74,7 +86,7 @@ function feed() {
   foodContainer.appendChild(food);
 
   updateDirtiness(1, 3);
-  updateHappiness(1);
+  updateHappiness(0.5);
 
   // Remove after the animation finishes
   food.addEventListener(
@@ -102,10 +114,11 @@ function drink() {
   waterTimerId = setTimeout(
     () => {
       drinkGif.style.display = "none";
+      updateHappiness(1 * clickCount);
+
       clickCount = 0;
-      updateHappiness(3);
     },
-    2000 + (clickCount - 1) * 500,
+    1000 + (clickCount - 1) * 100,
   );
   updateDirtiness(4, 6);
 }
@@ -123,7 +136,7 @@ function clean() {
     showerElement.style.display = "none";
     bubblesElement.style.display = "none";
 
-    updateHappiness(30);
+    updateHappiness(20);
     resetDirtiness();
   }, 5000);
 }
@@ -183,7 +196,7 @@ function slingshot() {
           slingshot.style.display = "none";
           launch.style.display = "none";
           updateDirtiness(30, 40);
-          updateHappiness(-5, -10);
+          updateHappiness(-20);
 
           actionsEnabled = true;
         },
@@ -201,10 +214,11 @@ function decreaseHappinessBar() {
 
   barTimerId = setInterval(() => {
     if (happiness <= 0) {
+      deathOverlay.style.display = "flex";
       clearInterval(barTimerId);
       return;
     }
-    updateHappiness(-0.2);
+    updateHappiness(-0.5);
 
     happinessCover.style.width = `${100 - Math.min(100, happiness)}%`;
   }, 1000);
@@ -260,11 +274,19 @@ function updateDirtiness(min, max) {
 }
 
 function updateHappiness(value) {
-  happiness += value;
-  if (happiness > 100) happiness = 100;
-  console.log("Happiness", happiness);
+  happiness = Math.max(0, Math.min(100, happiness + value));
+
   localStorage.setItem("happiness_level", happiness);
+
+  updateHappinessBar();
 }
+
+function updateHappinessBar() {
+  happinessCover.style.width = `${100 - happiness}%`;
+}
+
+updateHappinessBar();
+decreaseHappinessBar();
 
 window.feed = feed;
 window.drink = drink;
