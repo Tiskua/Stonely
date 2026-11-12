@@ -38,6 +38,7 @@ if (rockName) {
 
 // Pet Animation
 function togglePet() {
+  if (!actionsEnabled) return;
   if (getComputedStyle(petGif).display === "none") {
     petCount = 0;
     petGif.style.display = "block";
@@ -71,6 +72,7 @@ function feed() {
   foodContainer.appendChild(food);
 
   updateDirtiness(1, 3);
+  updateHappiness(1);
 
   // Remove after the animation finishes
   food.addEventListener(
