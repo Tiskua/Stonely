@@ -1,3 +1,5 @@
+import { cosmetics } from "../cosmetics/cosmetics-data.js";
+
 // All the timers
 let petTimerId;
 let clickCount = 0;
@@ -18,7 +20,7 @@ const drinkGif = document.querySelector("#drink-gif");
 const showerElement = document.querySelector("#shower-gif");
 const bubblesElement = document.querySelector("#bubbles-gif");
 
-const rockElement = document.querySelector("#rock");
+const rockElement = document.querySelector("#rock-container");
 
 // Attributes about rock
 const stored_happiness = localStorage.getItem("happiness_level");
@@ -114,14 +116,12 @@ function clean() {
 
   showerElement.style.display = "block";
   bubblesElement.style.display = "block";
-  dirtinessOverlay.classList.add("cleaning");
 
   clearTimeout(cleanTimerId);
 
   cleanTimerId = setTimeout(() => {
     showerElement.style.display = "none";
     bubblesElement.style.display = "none";
-    dirtinessOverlay.classList.remove("cleaning");
 
     updateHappiness(30);
     resetDirtiness();
@@ -134,7 +134,6 @@ function walk() {
   if (!actionsEnabled) return;
 
   rockElement.classList.add("rolling");
-  dirtinessOverlay.classList.add("rolling");
 
   actionsEnabled = false;
 
@@ -145,7 +144,7 @@ function walk() {
 
   walkTimerId = setTimeout(() => {
     rockElement.classList.remove("rolling");
-    dirtinessOverlay.classList.remove("rolling");
+
     sound.pause();
     actionsEnabled = true;
     updateHappiness(20);
@@ -183,6 +182,8 @@ function slingshot() {
 
           slingshot.style.display = "none";
           launch.style.display = "none";
+          updateDirtiness(30, 40);
+          updateHappiness(-5, -10);
 
           actionsEnabled = true;
         },
@@ -211,6 +212,36 @@ function decreaseHappinessBar() {
 
 decreaseHappinessBar();
 
+function renderCosmetics() {
+  const overlay = document.getElementById("cosmetic-overlay");
+
+  const selectedCosmetics = JSON.parse(
+    localStorage.getItem("selectedCosmetics") || "{}",
+  );
+
+  overlay.replaceChildren();
+
+  cosmetics.forEach((cosmetic) => {
+    if (selectedCosmetics[cosmetic.category] !== cosmetic.id) {
+      return;
+    }
+
+    const img = document.createElement("img");
+    img.src = cosmetic.image;
+    img.alt = cosmetic.name;
+    img.className = "cosmetic-image";
+
+    img.style.left = `calc(50% + ${cosmetic.x}px)`;
+    img.style.top = `calc(50% + ${cosmetic.y}px)`;
+    img.style.transform = "translate(-50%, -50%)";
+    img.style.width = `${cosmetic.width ?? 100}px`;
+    img.style.height = `${cosmetic.height ?? 100}px`;
+    overlay.appendChild(img);
+  });
+}
+
+renderCosmetics();
+
 // Util functions
 function getRandomIntInclusive(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -234,3 +265,10 @@ function updateHappiness(value) {
   console.log("Happiness", happiness);
   localStorage.setItem("happiness_level", happiness);
 }
+
+window.feed = feed;
+window.drink = drink;
+window.togglePet = togglePet;
+window.walk = walk;
+window.clean = clean;
+window.slingshot = slingshot;

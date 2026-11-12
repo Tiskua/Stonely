@@ -1,37 +1,4 @@
-const cosmetics = [
-  {
-    id: "top-hat",
-    name: "Top Hat",
-    image: "../images/cosmetics/hat/top-hat.png",
-    category: "Head",
-    x: 0,
-    y: -20,
-  },
-  {
-    id: "baseball-cap",
-    name: "Baseball Cap",
-    image: "../images/cosmetics/hat/baseball-cap.png",
-    category: "Head",
-    x: 0,
-    y: -15,
-  },
-  {
-    id: "glasses",
-    name: "Glasses",
-    image: "../images/cosmetics/eyes/glasses.png",
-    category: "Eyes",
-    x: 0,
-    y: 5,
-  },
-  {
-    id: "necklace",
-    name: "Necklace",
-    image: "../images/cosmetics/neck/necklace.png",
-    category: "Neck",
-    x: 0,
-    y: 25,
-  },
-];
+import { cosmetics } from "./cosmetics-data.js";
 
 const selectedCosmetics = JSON.parse(
   localStorage.getItem("selectedCosmetics") || "{}",
