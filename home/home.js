@@ -153,25 +153,43 @@ function walk() {
   updateDirtiness(10, 20);
 }
 
-//Sling shot animation
 function slingshot() {
-  if (!actionsEnabled) {
-    return;
-  }
+  if (!actionsEnabled) return;
+
   const slingshot = document.querySelector("#slingshot");
   const launch = document.querySelector("#launch");
 
+  actionsEnabled = false;
+
   slingshot.style.display = "block";
-  //launch.style.display = "block";
 
-  //show slingshot
+  setTimeout(() => {
+    slingshot.style.display = "none";
+    launch.style.display = "block";
 
-  //show launch slingshot | hide slingshot
-  //make rock png bigger
+    setTimeout(() => {
+      launch.style.display = "none";
+      slingshot.style.display = "block";
 
-  //hide launch slingshot
-  //show slingshot
-  //play rock animation as he disappears into the distance
+      rockElement.classList.remove("launch");
+      void rockElement.offsetWidth;
+
+      rockElement.classList.add("launch");
+
+      rockElement.addEventListener(
+        "animationend",
+        () => {
+          rockElement.classList.remove("launch");
+
+          slingshot.style.display = "none";
+          launch.style.display = "none";
+
+          actionsEnabled = true;
+        },
+        { once: true },
+      );
+    }, 400);
+  }, 500);
 }
 
 // Happiness bar logic
