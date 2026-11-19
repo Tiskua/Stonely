@@ -12,3 +12,7 @@
 .selected {
   color: #99582a;
 }
+
+a {
+  padding: 5px;
+}

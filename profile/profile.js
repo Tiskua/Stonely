@@ -187,7 +187,7 @@ function renderQuestion() {
 
   progressFill.style.width = `${((currentStep + 1) / questions.length) * 100}%`;
 
-  backBtn.hidden = currentStep === 0;
+  backBtn.textContent = currentStep === 0 ? "Cancel" : "Back";
 
   nextBtn.textContent =
     currentStep === questions.length - 1 ? "Finish →" : "Continue →";
@@ -332,6 +332,9 @@ backBtn.addEventListener("click", () => {
   if (currentStep > 0) {
     currentStep--;
     renderQuestion();
+  } else {
+    console.log("BACK HOME");
+    window.history.back();
   }
 });
 
