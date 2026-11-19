@@ -12,10 +12,12 @@ export const cosmetics = [
   {
     id: "baseball-cap",
     name: "Baseball Cap",
-    image: "../images/cosmetics/hat/baseball-cap.png",
+    image: "../images/cosmetics/hat/baseballcap.png",
     category: "Head",
-    x: 0,
-    y: -15,
+    x: -40,
+    y: -260,
+    width: 230,
+    height: 230,
   },
   {
     id: "glasses",
