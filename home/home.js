@@ -273,17 +273,17 @@ function updateDirtiness(min, max) {
   localStorage.setItem("dirtiness_level", dirtinessLevel);
 }
 
-// function updateHappiness(value) {
-//   happiness = Math.max(0, Math.min(100, happiness + value));
+function updateHappiness(value) {
+  happiness = Math.max(0, Math.min(100, happiness + value));
 
-//   localStorage.setItem("happiness_level", happiness);
+  localStorage.setItem("happiness_level", happiness);
 
-//   updateHappinessBar();
-// }
+  updateHappinessBar();
+}
 
-// function updateHappinessBar() {
-//   happinessCover.style.width = `${100 - happiness}%`;
-// }
+function updateHappinessBar() {
+  happinessCover.style.width = `${100 - happiness}%`;
+}
 
 updateHappinessBar();
 decreaseHappinessBar();
