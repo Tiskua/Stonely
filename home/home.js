@@ -31,7 +31,10 @@ if (!Number.isFinite(happiness)) {
   happiness = 100;
 }
 const stored_dirtiness = localStorage.getItem("dirtiness_level");
-let dirtinessLevel = parseInt(stored_dirtiness, 10) ?? 0;
+console.log("Stored", stored_dirtiness);
+let dirtinessLevel = parseInt(stored_dirtiness ?? "", 10) || 0;
+console.log("level", dirtinessLevel);
+
 dirtinessOverlay.style.opacity = dirtinessLevel / 100;
 
 // Get the name of the rock
@@ -47,7 +50,8 @@ const deathOverlay = document.getElementById("death-background");
 const restartButton = document.getElementById("restart-btn");
 
 restartButton.addEventListener("click", () => {
-  window.location.href = "/index.html";
+  window.location.replace("/index.html");
+  localStorage.clear();
 });
 
 // Pet Animation
@@ -66,7 +70,7 @@ function togglePet() {
     () => {
       petGif.style.display = "none";
       clickCount = 0;
-      updateHappiness(1);
+      updateHappiness(10);
     },
     1000 + (clickCount - 1) * 250,
   );
@@ -85,7 +89,7 @@ function feed() {
 
   foodContainer.appendChild(food);
 
-  updateDirtiness(1, 3);
+  updateDirtiness(3, 5);
   updateHappiness(0.5);
 
   // Remove after the animation finishes
@@ -126,18 +130,21 @@ function drink() {
 //Clean animation
 function clean() {
   if (!actionsEnabled) return;
-
+  pauseHappinessBar();
   showerElement.style.display = "block";
   bubblesElement.style.display = "block";
+
+  dirtinessOverlay.classList.add("cleaning");
 
   clearTimeout(cleanTimerId);
 
   cleanTimerId = setTimeout(() => {
     showerElement.style.display = "none";
     bubblesElement.style.display = "none";
-
+    dirtinessOverlay.classList.remove("cleaning");
     updateHappiness(20);
     resetDirtiness();
+    resumeHappinessBar();
   }, 5000);
 }
 
@@ -145,6 +152,7 @@ function clean() {
 const sound = new Audio("../assets/audio/rollin.mp3");
 function walk() {
   if (!actionsEnabled) return;
+  pauseHappinessBar();
 
   rockElement.classList.add("rolling");
 
@@ -161,13 +169,15 @@ function walk() {
     sound.pause();
     actionsEnabled = true;
     updateHappiness(20);
+    updateDirtiness(30, 40);
+
+    resumeHappinessBar();
   }, 10000);
-  updateDirtiness(10, 20);
 }
 
 function slingshot() {
   if (!actionsEnabled) return;
-
+  pauseHappinessBar();
   const slingshot = document.querySelector("#slingshot");
   const launch = document.querySelector("#launch");
 
@@ -199,6 +209,7 @@ function slingshot() {
           updateHappiness(-20);
 
           actionsEnabled = true;
+          resumeHappinessBar();
         },
         { once: true },
       );
@@ -216,12 +227,25 @@ function decreaseHappinessBar() {
     if (happiness <= 0) {
       deathOverlay.style.display = "flex";
       clearInterval(barTimerId);
+
       return;
     }
-    updateHappiness(-0.5);
+
+    updateHappiness(-0.5 - dirtinessLevel * 0.01);
 
     happinessCover.style.width = `${100 - Math.min(100, happiness)}%`;
   }, 1000);
+}
+
+function pauseHappinessBar() {
+  clearInterval(barTimerId);
+  barTimerId = null;
+}
+
+function resumeHappinessBar() {
+  if (barTimerId !== null) return;
+
+  decreaseHappinessBar();
 }
 
 decreaseHappinessBar();
@@ -267,7 +291,10 @@ function resetDirtiness() {
   localStorage.setItem("dirtiness_level", 0);
 }
 function updateDirtiness(min, max) {
-  dirtinessLevel = dirtinessLevel + getRandomIntInclusive(min, max);
+  dirtinessLevel = Math.min(
+    100,
+    dirtinessLevel + getRandomIntInclusive(min, max),
+  );
   dirtinessOverlay.style.opacity = dirtinessLevel / 100;
 
   localStorage.setItem("dirtiness_level", dirtinessLevel);

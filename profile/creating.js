@@ -82,6 +82,8 @@ function revealRock() {
   loadingContainer.hidden = true;
   revealContainer.hidden = false;
   rockImage.classList.add("reveal-animation");
+  localStorage.clear();
+  localStorage.setItem("dirtiness_level", 100);
 }
 
 requestAnimationFrame(animateLoading);
