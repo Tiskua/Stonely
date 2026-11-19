@@ -153,11 +153,13 @@
 }
 
 #back-btn {
-  flex: 0.3;
-  /* background: #edf1ee; */
-  background-color: rgb(217, 217, 217);
+  padding: 10px;
+  appearance: none;
+  appearance: none;
+  border: none;
+  background: transparent;
+
   color: #425651;
-  border: 1px solid rgb(149, 148, 148);
 }
 
 #create-btn {
