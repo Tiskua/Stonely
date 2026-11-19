@@ -50,7 +50,7 @@ const deathOverlay = document.getElementById("death-background");
 const restartButton = document.getElementById("restart-btn");
 
 restartButton.addEventListener("click", () => {
-  window.location.replace("/index.html");
+  window.location.replace("../index.html");
   localStorage.clear();
 });
 
