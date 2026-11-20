@@ -1,6 +1,7 @@
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 const userId = urlParams.get("user");
+const rockSound = new Audio("../assets/audio/rock-sliding.mp3");
 
 console.log("User id", userId);
 
@@ -34,6 +35,7 @@ async function sendMessage() {
     await sleep(getRandomIntInclusive(800, 1000));
     const AIMessage =
       rockResponses[getRandomIntInclusive(0, rockResponses.length - 1)];
+
     await addMessage("Rok AI", AIMessage);
   }
 
@@ -85,6 +87,10 @@ async function addMessage(person, message) {
     }
 
     newMessage.querySelector(".chat-text").textContent = message;
+    if (message == "*rock noises*") {
+      console;
+      rockSound.play();
+    }
   } else {
     newMessage.querySelector(".chat-text").textContent = message;
   }
@@ -95,34 +101,25 @@ function getRandomIntInclusive(min, max) {
 }
 
 const rockResponses = [
-  "I am Rock.",
   "I AM ROCK!",
   "I am rock?",
-  "I... am Rock.",
-  "I am... ROCK!",
   "I AM... ROCK!!!",
-  "i am rock...",
   "I am Rock :)",
   "I am Rock :(",
   "I am Rock <3",
-  "I AM ROCK?!",
   "I. AM. ROCK.",
-  "I am Rooooock!",
   "I am... rock?",
   "I AM ROCK!!!",
-  "I am rock~",
-  "I am Rock!!",
   "I am... Rock...",
   "I AM ROCK >:(",
   "I am Rock :D",
   "I am rock :/",
   "I am ROCK?!?",
   "I... AM... ROCK!",
-  "I am Rock...",
   "I AM ROOOOCK!!!",
-  "I am rock.",
   "I am Rock?!",
   "I am... rock!",
   "I AM ROCK.",
   "I am Rock :P",
+  "*rock noises*",
 ];
