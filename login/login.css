@@ -64,7 +64,6 @@
   cursor: pointer;
 }
 
-#create-btn,
 #login-btn {
   width: 100%;
   /* margin: 30px 20px 0 20px; */
@@ -92,8 +91,7 @@
   background-repeat: no-repeat;
 }
 
-#login-btn,
-#create-btn {
+#login-btn {
   flex: 1;
   background: var(--color-accent);
   color: white;
@@ -134,4 +132,38 @@
 .signup-link:hover {
   color: #15686b;
   text-decoration: underline;
+}
+
+.profile-footer {
+  flex-shrink: 0;
+  display: flex;
+  gap: 5px;
+  margin-top: 30px;
+  /* padding: 16px 24px 28px; */
+}
+
+.profile-footer button {
+  padding: 16px;
+  border-radius: 12px;
+  border: none;
+  font: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+#back-btn {
+  padding: 10px;
+  appearance: none;
+  appearance: none;
+  border: none;
+  background: transparent;
+
+  color: #425651;
+}
+
+#create-btn {
+  flex: 1;
+  background: #4b9b60;
+  color: white;
 }

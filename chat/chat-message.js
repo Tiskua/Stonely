@@ -52,8 +52,8 @@ async function addMessage(person, message) {
       ${
         side === "left"
           ? isAi
-            ? '<img src="/images/rok-logo.png" class="profile-image" />'
-            : '<img src="/images/default-profile.png" class="profile-image" />'
+            ? '<img src="../images/rok-logo.png" class="profile-image" />'
+            : '<img src="../images/default-profile.png" class="profile-image" />'
           : ""
       }
 
@@ -64,7 +64,7 @@ async function addMessage(person, message) {
 
       ${
         side === "right"
-          ? '<img src="/images/default-profile.png" class="profile-image" />'
+          ? '<img src="../images/default-profile.png" class="profile-image" />'
           : ""
       }
     </div>

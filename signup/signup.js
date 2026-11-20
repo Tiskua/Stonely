@@ -1,4 +1,5 @@
 const createButton = document.getElementById("create-btn");
+const backButton = document.getElementById("back-btn");
 
 const usernameInput = document.getElementById("username");
 const passwordInput = document.getElementById("password");
@@ -27,5 +28,9 @@ function updateCreateButton() {
 }
 
 createButton.addEventListener("click", () => {
-  window.location.href = "/profile/profile.html";
+  window.location.href = "../profile/profile.html";
+});
+
+backButton.addEventListener("click", () => {
+  window.history.back();
 });
