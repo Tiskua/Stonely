@@ -61,7 +61,6 @@ function togglePet() {
     clickCount = 0;
     petGif.style.display = "block";
   }
-
   clickCount++;
 
   clearTimeout(petTimerId);
